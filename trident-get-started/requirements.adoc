@@ -18,6 +18,12 @@ NOTE: 要了解 Astra Trident 使用的端口，请参见 link:../trident-refere
 
 
 
+== 有关Kubernetes 1.25的关键信息
+
+Astra Trident 22.10支持Kubernetes 1.25。在升级到Kubernetes 1.25之前、您必须先升级到Astra Trident 22.10。
+
+
+
 == 支持的前端（编排程序）
 
 Astra Trident 支持多个容器引擎和流程编排程序，其中包括：

@@ -3291,4 +3291,7 @@
   <block id="324fb1352ffffb105d10013810c42896" category="sidebar">Kubernetes 和 Astra Trident 对象</block>
   <block id="cc4a0df2c635530d752308ab5a1c4b89" category="sidebar">配置 ANF 后端</block>
   <block id="c949166d6970748c0094c800daa3324a" category="sidebar">管理 Astra Trident</block>
+  <block id="dfc322d478fc59cd6375362d8dad7bc0" category="section-title">有关Kubernetes 1.25的关键信息</block>
+  <block id="8ecd31edb9e56b6612383d3a68cf1025" category="paragraph">Astra Trident 22.10支持Kubernetes 1.25。在升级到Kubernetes 1.25之前、您必须先升级到Astra Trident 22.10。</block>
+  <block id="95390d9ff012ccbe3d3eeff435de47d2" category="sidebar">Astra Trident 是由 NetApp 维护的开源存储配置程序和流程编排程序。通过它，您可以为 Docker 和 Kubernetes 管理的容器化应用程序创建存储卷。*有关Kubernetes 1.25的关键信息的读取要求*</block>
 </blocks>
