@@ -1539,7 +1539,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-10-25 16:29:43 +0000">10/25/2022</time>
+    <time datetime="2022-11-09 17:36:46 +0000">11/09/2022</time>
     
   
 
@@ -1620,35 +1620,45 @@
 </div>
 </li>
 <li>
-<p>启动多路径守护进程：</p>
+<p>检查 iscsi-initiator-utils 版本是否为 6.2.0.877-2.el7 或更高版本：</p>
 <div class="paragraph">
-<p><code>sudo mpathconf --enable --with_multipathd y</code></p>
+<p><code>rpm -q iscsi-initiator-utils</code></p>
 </div>
 </li>
 <li>
-<p>请确保 <code>iscsid</code> 和 <code>multipathd</code> 已启用且正在运行：</p>
+<p>将扫描设置为手动：</p>
 <div class="paragraph">
-<p><code>sudo systemctl enable iscsid multipathd</code><br>
-<code>sudo systemctl start iscsid multipathd</code></p>
+<p><code>sudo sed -i 's/^\(node.session.scan\).*/\1 = manual/' /etc/iscsi/iscsid.conf</code></p>
 </div>
 </li>
 <li>
-<p>发现 iSCSI 目标：</p>
+<p>启用多路径：</p>
 <div class="paragraph">
-<p><code>sudo iscsiadm -m discoverydb -t st -p &lt;DATA_LIF_IP&gt; --discover</code></p>
+<p><code>sudo mpathconf --enable --with_multipathd y --find_multipaths n</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/trident-2207/images/note.svg" alt="注">
+</td>
+<td class="content">
+确保 <code>etc/multipath.conf</code> 包含 <code>find_multipaths no</code> 下 <code>defaults</code>。
+</td>
+</tr>
+</table>
 </div>
 </li>
 <li>
-<p>登录到发现的 iSCSI 目标：</p>
+<p>请确保 <code>iscsid</code> 和 <code>multipathd</code> 正在运行：</p>
 <div class="paragraph">
-<p><code>sudo iscsiadm -m node -p &lt;DATA_LIF_IP&gt; --login</code></p>
+<p><code>sudo systemctl enable --now iscsid multipathd</code></p>
 </div>
 </li>
 <li>
 <p>启用并启动 <code>iscsi</code>：</p>
 <div class="paragraph">
-<p><code>sudo systemctl enable iscsi</code><br>
-<code>sudo systemctl start iscsi</code></p>
+<p><code>sudo systemctl enable --now iscsi</code></p>
 </div>
 </li>
 </ol>
@@ -1668,34 +1678,48 @@
 </div>
 </li>
 <li>
+<p>检查 open-iscsi 版本是否为 2.0.877-5ubuntu2.10 或更高版本（对于双子系统）或 2.0.877-7.1ubuntu6.1 或更高版本（对于 Focal ）：</p>
+<div class="paragraph">
+<p><code>dpkg -l open-iscsi</code></p>
+</div>
+</li>
+<li>
+<p>将扫描设置为手动：</p>
+<div class="paragraph">
+<p><code>sudo sed -i 's/^\(node.session.scan\).*/\1 = manual/' /etc/iscsi/iscsid.conf</code></p>
+</div>
+</li>
+<li>
 <p>启用多路径：</p>
 <div class="paragraph">
 <p><code>sudo tee /etc/multipath.conf &lt;&#8592;'EOF'<br>
 defaults {<br>
     user_friendly_names yes<br>
-    find_multipaths yes<br>
+    find_multipaths no<br>
 }<br>
 EOF<br>
+sudo systemctl enable --now multipath-tools.service<br>
 sudo service multipath-tools restart</code></p>
 </div>
-</li>
-<li>
-<p>请确保 <code>iscsid</code> 和 <code>multipathd</code> 正在运行：</p>
-<div class="paragraph">
-<p><code>sudo service open-iscsi start<br>
-sudo service multipath-tools start</code></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/trident-2207/images/note.svg" alt="注">
+</td>
+<td class="content">
+确保 <code>etc/multipath.conf</code> 包含 <code>find_multipaths no</code> 下 <code>defaults</code>。
+</td>
+</tr>
+</table>
 </div>
 </li>
 <li>
-<p>发现 iSCSI 目标：</p>
+<p>请确保 <code>open-iscsi</code> 和 <code>multipath-tools</code> 已启用且正在运行：</p>
 <div class="paragraph">
-<p><code>sudo iscsiadm -m discoverydb -t st -p &lt;DATA_LIF_IP&gt; --discover</code></p>
-</div>
-</li>
-<li>
-<p>登录到发现的 iSCSI 目标：</p>
-<div class="paragraph">
-<p><code>sudo iscsiadm -m node -p &lt;DATA_LIF_IP&gt; --login</code></p>
+<p><code>sudo systemctl status multipath-tools</code><br>
+<code>sudo systemctl enable --now open-iscsi.service</code><br>
+<code>sudo systemctl status open-iscsi</code></p>
 </div>
 </li>
 </ol>
