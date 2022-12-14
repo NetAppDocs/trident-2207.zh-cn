@@ -22,7 +22,7 @@ API 的工作原理如下：
 
 
 
-== 获取
+== `GET`
 
 * `GET <trident-address>/trident/v1/<object-type>`：列出此类型的所有对象。
 * `GET <trident-address>/trident/v1/<object-type>/<object-name>`：获取已命名对象的详细信息。
@@ -30,7 +30,7 @@ API 的工作原理如下：
 
 
 
-== 发布
+== `POST`
 
 `POST <trident-address>/trident/v1/<object-type>`：创建指定类型的对象。
 
@@ -40,7 +40,7 @@ API 的工作原理如下：
 
 
 
-== 删除
+== `DELETE`
 
 `DELETE <trident-address>/trident/v1/<object-type>/<object-name>`：删除已命名的资源。
 

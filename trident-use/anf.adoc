@@ -16,6 +16,7 @@ summary: 了解如何使用提供的示例配置将 Azure NetApp Files 配置为
 
 NOTE: Azure NetApp Files 服务不支持小于 100 GB 的卷。如果请求的卷较小，则 Astra Trident 会自动创建 100 GB 的卷。
 
+.您需要的内容
 配置和使用 https://azure.microsoft.com/en-us/services/netapp/["Azure NetApp Files"^] 后端，您需要满足以下要求：
 
 * `subscriptionID` 从启用了Azure NetApp Files 的Azure订阅。
@@ -28,6 +29,7 @@ TIP: 要了解有关 Azure 内置角色的详细信息，请参见 https://docs.
 * 如果您是首次使用 Azure NetApp Files 或在新位置使用，则需要进行一些初始配置。请参见 https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes["《快速入门指南》"^]。
 
 
+.关于此任务
 根据后端配置（子网，虚拟网络，服务级别和位置）， Trident 会在请求位置提供的容量池上创建 ANF 卷，并与请求的服务级别和子网匹配。
 
 

@@ -16,6 +16,7 @@ summary: 了解如何使用提供的示例配置将 Cloud Volumes Service for Go
 
 NOTE: NetApp Cloud Volumes Service for Google Cloud 不支持大小小于 100 GiB 的 CVS-Performance 卷或小于 300 GiB 的 CVS 卷。如果请求的卷小于最小大小，则 Astra Trident 会自动创建最小大小的卷。
 
+.您需要的内容
 以配置和使用 https://cloud.netapp.com/cloud-volumes-service-for-gcp?utm_source=NetAppTrident_ReadTheDocs&utm_campaign=Trident["适用于 Google Cloud 的 Cloud Volumes Service"^] 后端，您需要满足以下要求：
 
 * 配置了 NetApp CVS 的 Google Cloud 帐户

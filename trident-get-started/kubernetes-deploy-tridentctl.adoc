@@ -19,6 +19,7 @@ TIP: 如果您尚未熟悉 link:../trident-concepts/intro.html["基本概念"^]�
 
 TIP: 要自定义部署，请参见 link:kubernetes-customize-deploy-tridentctl.html["此处"^]。
 
+.您需要的内容
 要部署 Astra Trident ，应满足以下前提条件：
 
 * 您对受支持的 Kubernetes 集群具有完全权限。
