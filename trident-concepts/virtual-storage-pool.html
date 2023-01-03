@@ -1519,7 +1519,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-10-25 16:29:43 +0000">10/25/2022</time>
+    <time datetime="2023-01-03 17:23:04 +0000">01/03/2023</time>
     
   
 
@@ -1559,7 +1559,7 @@
 <p>大多数方面都以后端特定术语来指定。重要的是、宽高值不会公开在后端驱动程序之外、也不能在中进行匹配 <code>StorageClasses</code>。而是管理员为每个虚拟池定义一个或多个标签。每个标签都是一个键：值对，标签可能在唯一的后端通用。与其他方面一样，可以为每个池指定标签，也可以为后端指定全局标签。与具有预定义名称和值的方面不同，管理员可以根据需要全权定义标签键和值。</p>
 </div>
 <div class="paragraph">
-<p>答 <code>StorageClass</code> 通过引用选择器参数中的标签来标识要使用的虚拟池。虚拟池选择器支持六个运算符：</p>
+<p>答 <code>StorageClass</code> 通过引用选择器参数中的标签来标识要使用的虚拟池。虚拟池选择器支持以下运算符：</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1571,29 +1571,39 @@
 <tr>
 <th class="tableblock halign-left valign-top">运算符</th>
 <th class="tableblock halign-left valign-top">示例</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">池的标签值必须：</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>=</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">性能 = 高级</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">池的标签值必须匹配</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">匹配</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>!=</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">性能！ = 至高</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">池的标签值不能匹配</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">不匹配</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>in</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">位置（东部，西部）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">池的标签值必须位于一组值中</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">位于一组值中</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>notin</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">性能注释（银牌，铜牌）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">池的标签值不能为 b</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">不在值集内</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;key&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">protection</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">存在任何值</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>!&lt;key&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">！保护</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">不存在</p></td>
 </tr>
 </tbody>
 </table>
