@@ -1,13 +1,13 @@
 ---
 sidebar: sidebar 
-permalink: legal.html 
+permalink: legal-notices.html 
 keywords:  
 summary:  
 ---
 = 法律声明
 :allow-uri-read: 
 :icons: font
-:imagesdir: ../media/
+:imagesdir: ./media/
 
 
 [role="lead"]
@@ -45,4 +45,6 @@ link:https://www.netapp.com/company/legal/privacy-policy/["https://www.netapp.co
 
 == 开放源代码
 
-您可以在每个版本的通知文件中查看用于 Astra Trident 的 NetApp 软件中使用的第三方版权和许可证 https://github.com/NetApp/trident/[]。
+通知文件提供有关 NetApp 软件中使用的第三方版权和许可证的信息。
+
+https://github.com/NetApp/trident/[](英文)
